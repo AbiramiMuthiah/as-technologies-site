@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A&amp;S Technologies — AI Automation for Your Business</title>
+<meta name="description" content="A&S Technologies builds AI-powered WhatsApp receptionists, workflow automation, and business websites for SMEs and clinics in Kedah &amp; Penang, Malaysia.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230C3532'/%3E%3Cpath d='M24 6 L40 15.5 V32.5 L24 42 L8 32.5 V15.5 Z' stroke='%23EAF3F1' stroke-width='2.4' fill='none'/%3E%3Cpath d='M15 28 L24 15 L33 28' stroke='%232BC79A' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M18.5 23 H29.5' stroke='%23EAF3F1' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='15' r='2.1' fill='%232BC79A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A2726;
+    --teal-900:#0C3532;
+    --teal-800:#0F433F;
+    --teal-700:#155C56;
+    --mint:#2BC79A;
+    --mint-light:#8FE9CB;
+    --paper:#F5F7F4;
+    --paper-2:#FFFFFF;
+    --ash:#4B5B57;
+    --ash-light:#7C8B87;
+    --line:#DCE6E1;
+    --line-dark:rgba(255,255,255,0.14);
+    --radius-s:6px;
+    --radius-m:10px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    line-height:1.12;
+    margin:0;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:2px solid var(--mint);outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- Logo mark ---------- */
+  .mark{display:inline-flex;align-items:center;gap:11px;}
+  .mark svg{width:34px;height:34px;flex:none;}
+  .mark span{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.01em;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,247,244,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .mark.dark span{color:var(--ink);}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--ash);transition:color .15s ease;}
+  .nav-links a:hover{color:var(--ink);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 20px;border-radius:var(--radius-s);
+    font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;
+    cursor:pointer;border:1px solid transparent;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-mint{background:var(--mint);color:#08221F;}
+  .btn-mint:hover{background:#33d9a8;}
+  .btn-outline{background:transparent;border-color:var(--line);color:var(--ink);}
+  .btn-outline:hover{border-color:var(--teal-700);}
+  .btn-outline-dark{background:transparent;border-color:var(--line-dark);color:#EAF3F1;}
+  .btn-outline-dark:hover{border-color:var(--mint-light);}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .burger{display:none;background:none;border:none;padding:6px;cursor:pointer;}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:radial-gradient(120% 140% at 82% -10%, #12524C 0%, var(--teal-900) 46%, var(--ink) 100%);
+    color:#EAF3F1;
+    padding:76px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;
+  }
+  .eyebrow-line{
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+    font-size:13.5px;color:var(--mint-light);font-weight:500;
+  }
+  .eyebrow-line .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(43,199,154,0.18);}
+  .hero h1{
+    font-size:clamp(34px,4.6vw,54px);
+    color:#FFFFFF;
+    max-width:640px;
+  }
+  .hero-sub{
+    margin-top:22px;
+    font-size:17.5px;
+    color:#C4D9D4;
+    max-width:480px;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .hero-proof{
+    margin-top:40px;padding-top:26px;border-top:1px solid var(--line-dark);
+    display:flex;gap:14px;align-items:flex-start;max-width:500px;
+  }
+  .hero-proof .tick{
+    width:20px;height:20px;border-radius:50%;background:rgba(43,199,154,0.16);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px;
+  }
+  .hero-proof .tick svg{width:11px;height:11px;}
+  .hero-proof p{font-size:14px;color:#B7CDC8;}
+  .hero-proof strong{color:#E7F5F1;font-weight:600;}
+
+  /* Chat mock */
+  .phone{
+    background:#0E403C;
+    border:1px solid rgba(255,255,255,0.10);
+    border-radius:22px;
+    padding:18px;
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.55);
+    max-width:380px;
+    margin-left:auto;
+  }
+  .phone-top{
+    display:flex;align-items:center;gap:10px;padding:2px 4px 16px;
+    border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:14px;
+  }
+  .phone-top .avatar{
+    width:34px;height:34px;border-radius:50%;background:var(--mint);
+    display:flex;align-items:center;justify-content:center;color:#08221F;font-weight:700;font-size:13px;font-family:'Space Grotesk',sans-serif;
+  }
+  .phone-top .who p:first-child{font-size:14px;font-weight:600;color:#fff;}
+  .phone-top .who p:last-child{font-size:12px;color:var(--mint-light);margin-top:1px;}
+  .bubble{
+    max-width:82%;padding:10px 13px;border-radius:14px;font-size:13.5px;margin-bottom:10px;
+    opacity:0;transform:translateY(8px);animation:rise .5s ease forwards;
+  }
+  .bubble.in{background:rgba(255,255,255,0.08);color:#E7F5F1;border-bottom-left-radius:4px;}
+  .bubble.out{background:var(--mint);color:#083A30;margin-left:auto;border-bottom-right-radius:4px;font-weight:500;}
+  .bubble ul{margin:6px 0 0;padding-left:16px;}
+  .bubble li{margin-bottom:2px;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  .b1{animation-delay:.1s;} .b2{animation-delay:.5s;} .b3{animation-delay:.95s;} .b4{animation-delay:1.5s;} .b5{animation-delay:2.05s;}
+  .phone-input{
+    margin-top:6px;display:flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.06);border-radius:20px;padding:9px 14px;
+    font-size:12.5px;color:#7FA69E;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:600px;margin-bottom:56px;}
+  .section-head .kicker{font-size:14px;color:var(--mint) ;font-weight:600;margin-bottom:12px;display:block;}
+  .section-head h2{font-size:clamp(26px,3.2vw,36px);}
+  .section-head p{margin-top:14px;font-size:16px;color:var(--ash);}
+  .light-kicker{color:var(--teal-700);}
+
+  /* ---------- Services ---------- */
+  .services-wrap{position:relative;}
+  .services{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--line);border-left:1px solid var(--line);
+  }
+  .service{
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:36px 32px 40px;
+  }
+  .service .num{
+    font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ash-light);
+    display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .service .num::after{content:"";flex:1;height:1px;background:var(--line);}
+  .service .icon{width:38px;height:38px;margin-bottom:20px;color:var(--teal-700);}
+  .service h3{font-size:19px;margin-bottom:10px;}
+  .service p{font-size:14.5px;color:var(--ash);margin-bottom:18px;}
+  .service ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;}
+  .service li{font-size:13.5px;color:var(--ash);display:flex;gap:9px;align-items:flex-start;}
+  .service li svg{width:14px;height:14px;flex:none;margin-top:3px;color:var(--mint);}
+
+  /* ---------- Proof strip ---------- */
+  .proof{
+    background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:44px 0;
+  }
+  .proof .wrap{display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:space-between;}
+  .proof-tag{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+    color:var(--teal-700);background:#E4F5EF;padding:6px 12px;border-radius:20px;
+  }
+  .proof-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--mint);}
+  .proof-text{font-size:15px;color:var(--ash);max-width:560px;}
+  .proof-text strong{color:var(--ink);}
+  .proof-stats{display:flex;gap:36px;}
+  .proof-stats div{text-align:left;}
+  .proof-stats .n{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;color:var(--ink);}
+  .proof-stats .l{font-size:12.5px;color:var(--ash-light);margin-top:2px;}
+
+  /* ---------- How it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .step{position:relative;padding-top:26px;}
+  .step::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--line);
+  }
+  .step::after{
+    content:"";position:absolute;top:-1px;left:0;width:22px;height:4px;background:var(--mint);
+  }
+  .step .idx{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ash-light);margin-bottom:10px;}
+  .step h4{font-size:17px;margin-bottom:9px;}
+  .step p{font-size:14px;color:var(--ash);}
+
+  /* ---------- Pricing ---------- */
+  .pricing-table{border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;background:var(--paper-2);}
+  .pt-row{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;}
+  .pt-row + .pt-row{border-top:1px solid var(--line);}
+  .pt-row > div{padding:18px 22px;font-size:14px;color:var(--ash);display:flex;align-items:center;}
+  .pt-row.head{background:var(--ink);}
+  .pt-row.head > div{padding:26px 22px;display:block;}
+  .pt-row.head .tier-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;color:#fff;margin-bottom:6px;}
+  .pt-row.head .tier-desc{font-size:12.5px;color:#9FC2BB;line-height:1.4;}
+  .pt-row.head > div:first-child{background:transparent;}
+  .pt-row:not(.head) > div:first-child{color:var(--ink);font-weight:500;background:var(--paper);}
+  .pt-row .check{color:var(--mint);}
+  .pt-row .dash{color:var(--ash-light);}
+  .pt-row.foot > div{padding:22px;}
+  .pt-row.foot > div:first-child{background:var(--paper);}
+  .tier-price{font-size:13px;color:var(--ash-light);}
+  td-check svg{width:16px;height:16px;}
+
+  /* ---------- CTA / Contact ---------- */
+  .cta-section{
+    background:linear-gradient(150deg, var(--teal-900) 0%, var(--ink) 100%);
+    color:#EAF3F1;
+    border-radius:var(--radius-m);
+    padding:64px 56px;
+    display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;
+  }
+  .cta-section h2{color:#fff;font-size:clamp(24px,3vw,32px);max-width:440px;}
+  .cta-section p{margin-top:14px;color:#B7CDC8;font-size:15.5px;max-width:420px;}
+  .cta-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .cta-contact-line{display:flex;align-items:center;gap:10px;font-size:14px;color:#C4D9D4;}
+  .cta-contact-line svg{width:16px;height:16px;color:var(--mint);}
+
+  footer{padding:44px 0;}
+  .footer-row{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;
+    border-top:1px solid var(--line);padding-top:30px;
+  }
+  .footer-row .mark span{font-size:15px;}
+  .footer-links{display:flex;gap:24px;}
+  .footer-links a{font-size:13.5px;color:var(--ash);}
+  .footer-links a:hover{color:var(--ink);}
+  .footer-fine{font-size:12.5px;color:var(--ash-light);margin-top:18px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:48px;}
+    .phone{margin:0;max-width:420px;}
+    .services{grid-template-columns:1fr;}
+    .service{border-right:1px solid var(--line);}
+    .steps{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .pt-row{grid-template-columns:1.2fr 1fr 1fr 1fr;}
+    .cta-section{grid-template-columns:1fr;padding:44px 30px;}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .nav-cta .btn-outline{display:none;}
+    section{padding:64px 0;}
+    .proof .wrap{flex-direction:column;align-items:flex-start;gap:22px;}
+    .steps{grid-template-columns:1fr;}
+    .pt-row{grid-template-columns:1.1fr 1fr 1fr 1fr;font-size:12px;}
+    .pt-row > div{padding:14px 10px;}
+    .pt-row.head > div{padding:18px 10px;}
+    .tier-desc{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="mark dark" aria-label="A&S Technologies home">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 3 L44 15 V33 L24 45 L4 33 V15 Z" stroke="#0C3532" stroke-width="2.4"/>
+        <path d="M13 30 L24 15 L35 30" stroke="#2BC79A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M17.5 24 H30.5" stroke="#0C3532" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="2" fill="#2BC79A"/>
+      </svg>
+      <span>A&amp;S Technologies</span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="https://www.linkedin.com/company/automation-and-solutions-technologies/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-mint" href="https://wa.me/60195769901" target="_blank" rel="noopener">Message us</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-line"><span class="dot"></span>Automation studio serving businesses all over Malaysia</div>
+        <h1>Your front desk never sleeps.</h1>
+        <p class="hero-sub">We build AI systems that answer enquiries, book appointments, send reminders and raise invoices — inside WhatsApp, your calendar, and your own website — so your team spends less time on admin.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-mint" href="https://wa.me/60195769901" target="_blank" rel="noopener">Chat with us on WhatsApp</a>
+          <a class="btn btn-outline-dark" href="#how-it-works">See how it works</a>
+        </div>
+        <div class="hero-proof">
+          <span class="tick"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="#2BC79A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p><strong>Live in production</strong> — our AI WhatsApp receptionist already runs the front desk for a dental clinic in Sungai Petani today: real bookings, real reminders, real invoices.</p>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="phone-top">
+          <div class="avatar">A&amp;S</div>
+          <div class="who">
+            <p>A&amp;S Technologies</p>
+            <p>WhatsApp Business · Online</p>
+          </div>
+        </div>
+        <div class="bubble in b1">Hi! Welcome to the clinic. How can I help you today?</div>
+        <div class="bubble out b2">I'd like to book an appointment for next week.</div>
+        <div class="bubble in b3">Sure — what service are you looking for, and what day works best?</div>
+        <div class="bubble out b4">General check-up, Thursday morning if possible.</div>
+        <div class="bubble in b5">Here's what's open Thursday:
+          <ul><li>9:30 AM</li><li>11:00 AM</li><li>2:00 PM</li></ul>
+          Which time works for you?
+        </div>
+        <div class="phone-input">Type a message…</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof">
+    <div class="wrap">
+      <div style="max-width:640px;">
+        <span class="proof-tag"><span class="dot"></span>Built &amp; operated by A&amp;S Technologies</span>
+        <p class="proof-text" style="margin-top:14px;">We don't just design automation — <strong>we build, deploy and run it.</strong> Every system we ship is production software, not a demo: connected to real calendars, real messages, and real customers.</p>
+      </div>
+      <div class="proof-stats">
+        <div><div class="n">24/7</div><div class="l">Front desk coverage</div></div>
+        <div><div class="n">1</div><div class="l">Clinic live today</div></div>
+        <div><div class="n">0</div><div class="l">Missed messages</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker light-kicker">What we build</span>
+        <h2>Three systems, one business that runs itself</h2>
+        <p>Most businesses don't need more software — they need the software they already use to talk to each other. That's what we build.</p>
+      </div>
+    </div>
+    <div class="wrap services-wrap">
+      <div class="services">
+        <div class="service">
+          <div class="num">01</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 6.6 3 11c0 2.4 1.2 4.6 3.1 6.1L5 21l4.2-1.4c.9.3 1.8.4 2.8.4 5 0 9-3.6 9-8s-4-9-9-9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.5" cy="11" r="1" fill="currentColor"/><circle cx="12" cy="11" r="1" fill="currentColor"/><circle cx="15.5" cy="11" r="1" fill="currentColor"/></svg></div>
+          <h3>AI WhatsApp receptionists</h3>
+          <p>A full-time front desk that lives inside WhatsApp — answering questions, booking appointments, and following up, even after closing time.</p>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>24/7 enquiries &amp; booking</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Reminders that cut no-shows</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto-generated invoices</li>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="num">02</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="13" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 11v3a2 2 0 0 0 2 2H14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M17.5 4v3.5a2 2 0 0 1-2 2H10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <h3>Workflow &amp; backend automation</h3>
+          <p>We connect your calendar, invoicing, CRM and messaging tools into one system that runs quietly in the background.</p>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom-built, not templated</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Calendar &amp; invoicing sync</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Lead capture &amp; follow-up</li>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="num">03</div>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="18" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 8.5h18" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="6.5" r="0.6" fill="currentColor"/><circle cx="8" cy="6.5" r="0.6" fill="currentColor"/></svg></div>
+          <h3>Business websites</h3>
+          <p>A fast, mobile-first website that represents your business properly — and connects straight into your automation.</p>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Built around your brand</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp booking built in</li>
+            <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Easy for you to update</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker light-kicker">The process</span>
+        <h2>From first call to live automation</h2>
+        <p>Four steps, usually a couple of weeks — you're never left guessing what happens next.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="idx">01</div><h4>Discovery call</h4><p>We learn how your business runs day to day, and where the bottlenecks actually are.</p></div>
+        <div class="step"><div class="idx">02</div><h4>Map the workflow</h4><p>We design the exact automation — what it should answer, book, and never touch.</p></div>
+        <div class="step"><div class="idx">03</div><h4>Build &amp; connect</h4><p>We build it and connect it to WhatsApp, your calendar, and your other tools.</p></div>
+        <div class="step"><div class="idx">04</div><h4>Launch &amp; support</h4><p>You go live. We monitor it closely and refine it as your business changes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker light-kicker">Packages</span>
+        <h2>Pick a starting point — we'll tailor it from there</h2>
+        <p>Every business is automated differently, so final pricing depends on scope. Here's roughly what each tier covers.</p>
+      </div>
+
+      <div class="pricing-table">
+        <div class="pt-row head">
+          <div></div>
+          <div><div class="tier-name">Starter</div><div class="tier-desc">One job, done properly</div></div>
+          <div><div class="tier-name">Professional</div><div class="tier-desc">Your full front line, automated</div></div>
+          <div><div class="tier-name">Advanced</div><div class="tier-desc">Multi-location &amp; custom systems</div></div>
+        </div>
+        <div class="pt-row"><div>WhatsApp receptionist</div><div class="check">✓</div><div class="check">✓</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Booking &amp; reminders</div><div class="check">✓</div><div class="check">✓</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Invoice generation</div><div class="dash">—</div><div class="check">✓</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Business website</div><div class="dash">—</div><div class="check">✓</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Custom integrations (CRM, payments)</div><div class="dash">—</div><div class="dash">—</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Multi-location / multi-staff setup</div><div class="dash">—</div><div class="dash">—</div><div class="check">✓</div></div>
+        <div class="pt-row"><div>Post-launch support</div><div>2 weeks</div><div>30 days</div><div>Ongoing, priority</div></div>
+        <div class="pt-row foot">
+          <div class="tier-price">Contact us for a quote</div>
+          <div><a class="btn btn-outline" style="width:100%;" href="https://wa.me/60195769901" target="_blank" rel="noopener">Get a quote</a></div>
+          <div><a class="btn btn-mint" style="width:100%;" href="https://wa.me/60195769901" target="_blank" rel="noopener">Get a quote</a></div>
+          <div><a class="btn btn-outline" style="width:100%;" href="https://wa.me/60195769901" target="_blank" rel="noopener">Get a quote</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-section">
+        <div>
+          <h2>Tell us how your business runs today. We'll show you what can run itself.</h2>
+          <p>No generic templates — every system is built around your workflow, your customers, and your tools.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-mint" style="width:100%;justify-content:center;" href="https://wa.me/60195769901" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a class="btn btn-outline-dark" style="width:100%;justify-content:center;" href="mailto:astechnologiesinfos@gmail.com">Email us</a>
+          <div class="cta-contact-line"><svg viewBox="0 0 24 24" fill="none"><path d="M6.5 3.5h3l2 4.5-2.2 1.8a13 13 0 0 0 5.9 5.9l1.8-2.2 4.5 2v3c0 1.1-.9 2-2 2C11.6 20.5 3.5 12.4 3.5 4.5c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><a href="tel:+60178523010" style="color:inherit;">017-852 3010</a>&nbsp;/&nbsp;<a href="tel:+60195769901" style="color:inherit;">+60 19-576 9901</a></div>
+          <div class="cta-contact-line"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>astechnologiesinfos@gmail.com</div>
+          <div class="cta-contact-line"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>Serving businesses all over Malaysia · Remote-friendly</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <a href="#top" class="mark dark">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 3 L44 15 V33 L24 45 L4 33 V15 Z" stroke="#0C3532" stroke-width="2.4"/>
+          <path d="M13 30 L24 15 L35 30" stroke="#2BC79A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M17.5 24 H30.5" stroke="#0C3532" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="24" cy="15" r="2" fill="#2BC79A"/>
+        </svg>
+        <span>A&amp;S Technologies</span>
+      </a>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://www.linkedin.com/company/automation-and-solutions-technologies/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/60195769901" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:astechnologiesinfos@gmail.com">Email</a>
+      </div>
+    </div>
+    <p class="footer-fine">© 2026 A&amp;S Technologies (Automation and Solutions Technologies). IT Services &amp; IT Consulting, based in Kedah, Malaysia.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.burger').addEventListener('click', function(){
+    var links = document.querySelector('.nav-links');
+    var open = links.style.display === 'flex';
+    links.style.display = open ? 'none' : 'flex';
+    links.style.cssText += open ? '' : 'position:absolute;top:72px;left:0;right:0;background:#F5F7F4;flex-direction:column;padding:20px 28px;gap:18px;border-bottom:1px solid #DCE6E1;';
+  });
+</script>
+
+</body>
+</html>
